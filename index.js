@@ -15,12 +15,15 @@ mongoose.connection.on("error", (err) => {
 
 //import routes
 const productRoutes = require("./routes/product.routes");
+const categoryRoutes = require("./routes/category.routes");
+const authRoutes = require("./routes/auth.routes");
 //middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 //routes middleware
 app.use("/products", productRoutes);
-
+app.use("/categories", categoryRoutes);
+app.use("/auth", authRoutes);
 //server listen
 const port = 8000;
 app.listen(port, () => {
